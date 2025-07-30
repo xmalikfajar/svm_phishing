@@ -1,0 +1,74 @@
+# ---- PYTHON ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Byte-compiled / optimized / DLL files
+*.pyc
+
+# Unit test / coverage
+htmlcov/
+.coverage
+.cache/
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.tox/
+.pytest_cache/
+
+# ---- ENVIRONMENTS ----
+venv/
+env/
+ENV/
+.venv/
+.ipynb_checkpoints/
+Pipfile.lock
+poetry.lock
+
+# ---- JUPYTER / COLAB ----
+*.ipynb_checkpoints
+*.ipynb~ 
+*.nbconvert.ipynb
+*.nb.json
+
+# ---- SYSTEM FILES ----
+.DS_Store       # macOS
+Thumbs.db       # Windows
+
+# ---- IDEs ----
+.vscode/
+.idea/
+
+# ---- LOG / DEBUG ----
+*.log
+*.tmp
+*.swp
+*.bak
+
+# ---- STREAMLIT ----
+.streamlit/config.toml
+.streamlit/secrets.toml
+
+# ---- MODEL / ARTIFACTS ----
+*.joblib
+models/
+artifacts/
+
+# ---- DATA ----
+*.csv
+*.tsv
+*.xls
+*.xlsx
+*.db
+*.sqlite
+data/
+
+# ---- DIST / BUILD ----
+dist/
+build/
+*.egg-info/
+*.egg
+.eggs/
