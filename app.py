@@ -17,10 +17,10 @@ cols = st.columns(3)
 
 # Pertanyaan numerik
 numerik_inputs = {
-    "NumDots" : ["Berapa jumlah titik dalam url", 0],
-    "SubdomainLevel" : ["Berapa jumlah level subdomain", 0],
+    "NumDots" : ["Berapa jumlah titik dalam url", 2],
+    "SubdomainLevel" : ["Berapa jumlah level subdomain", 1],
     "PathLevel" : ["Berapa jumlah path level", 0],
-    "UrlLength" : ["Berapa panjang karakter url", 12],
+    "UrlLength" : ["Berapa panjang karakter url", 25],
     "NumDash" : ["Berapa jumlah tanda hubung (-) dalam url", 0],
     "NumDashInHostname" : ["Berapa jumlah tanda hubung (-) dalam hostname", 0],
     "NumUnderscore" : ["Berapa jumlah garis bawah / underscore dalam url", 0],
@@ -29,7 +29,7 @@ numerik_inputs = {
     "NumAmpersand" : ["Berapa jumlah simbol & dalam url", 0],
     "NumHash" : ["Berapa jumlah simbol # dalam url", 0],
     "NumNumericChars" : ["Berapa jumlah karakter angka dalam url", 0],
-    "HostnameLength" : ["Berapa panjang hostname", 3],
+    "HostnameLength" : ["Berapa panjang hostname", 16],
     "PathLength" : ["Berapa panjang path dalam url", 0],
     "QueryLength" : ["Berapa panjang query dalam url", 0],
     "NumSensitiveWords" : ["berpa jumlah kata sensitif di url(seperti id, login,password)", 0],
@@ -150,12 +150,8 @@ if st.button("Prediksi"):
 
     data = scaler.transform(np.array(seq_feature).reshape(1, -1))
     pred = model.predict(data)[0]
-    label = "🔒 Legitimate" if pred == 0 else "🚨 Phishing"
 
-    st.success(f"Hasil Prediksi: {label}")
-   
-#     st.write(pred)
-#     st.write(data)
-#     st.write(np.array(seq_feature).reshape(1, -1))
-
-# st.table(user_input)
+    if pred == 1:
+        st.error("🚨 Phishing")
+    else:
+        st.success("🔒 Legitimate")
